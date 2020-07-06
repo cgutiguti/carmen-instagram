@@ -19,6 +19,7 @@
 		9BCFDA2124B3AEF7009565C4 /* Carmen_InstagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCFDA2024B3AEF7009565C4 /* Carmen_InstagramUITests.m */; };
 		9BCFDA3324B3BDB0009565C4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCFDA3224B3BDB0009565C4 /* LoginViewController.m */; };
 		9BCFDA3624B3C2D9009565C4 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCFDA3524B3C2D9009565C4 /* HomeViewController.m */; };
+		9BCFDA3C24B3DC6F009565C4 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCFDA3B24B3DC6F009565C4 /* ComposeViewController.m */; };
 		B58AC2D0022C77E234B9CD7F /* Pods_Carmen_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFA00D459895CC73B651675 /* Pods_Carmen_Instagram.framework */; };
 		F037E6BF030BB72195E41580 /* Pods_Carmen_Instagram_Carmen_InstagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D08A0576211A2094C42FA3B /* Pods_Carmen_Instagram_Carmen_InstagramUITests.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,8 @@
 		9BCFDA3224B3BDB0009565C4 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9BCFDA3424B3C2D9009565C4 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		9BCFDA3524B3C2D9009565C4 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		9BCFDA3A24B3DC6F009565C4 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
+		9BCFDA3B24B3DC6F009565C4 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		A2F6705E8AD750683864F8D7 /* Pods-Carmen-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carmen-Instagram.release.xcconfig"; path = "Target Support Files/Pods-Carmen-Instagram/Pods-Carmen-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		C06AABF0A75582EB82FB0645 /* Pods-Carmen-Instagram-Carmen-InstagramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carmen-Instagram-Carmen-InstagramUITests.release.xcconfig"; path = "Target Support Files/Pods-Carmen-Instagram-Carmen-InstagramUITests/Pods-Carmen-Instagram-Carmen-InstagramUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EE2F13DCF0EC8F8B6A01DB52 /* Pods-Carmen-Instagram-Carmen-InstagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carmen-Instagram-Carmen-InstagramUITests.debug.xcconfig"; path = "Target Support Files/Pods-Carmen-Instagram-Carmen-InstagramUITests/Pods-Carmen-Instagram-Carmen-InstagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +186,8 @@
 				9BCFDA3224B3BDB0009565C4 /* LoginViewController.m */,
 				9BCFDA3424B3C2D9009565C4 /* HomeViewController.h */,
 				9BCFDA3524B3C2D9009565C4 /* HomeViewController.m */,
+				9BCFDA3A24B3DC6F009565C4 /* ComposeViewController.h */,
+				9BCFDA3B24B3DC6F009565C4 /* ComposeViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -453,6 +458,7 @@
 				9BCFD9FB24B3AEF5009565C4 /* AppDelegate.m in Sources */,
 				9BCFDA0C24B3AEF7009565C4 /* main.m in Sources */,
 				9BCFD9FE24B3AEF5009565C4 /* SceneDelegate.m in Sources */,
+				9BCFDA3C24B3DC6F009565C4 /* ComposeViewController.m in Sources */,
 				9BCFDA3324B3BDB0009565C4 /* LoginViewController.m in Sources */,
 				9BCFDA3624B3C2D9009565C4 /* HomeViewController.m in Sources */,
 			);
