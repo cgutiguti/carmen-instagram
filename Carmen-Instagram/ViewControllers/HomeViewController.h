@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  HomeViewController.h
 //  Carmen-Instagram
 //
 //  Created by Carmen Gutierrez on 7/6/20.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-@property (strong, nonatomic) UIWindow *window;
+NS_ASSUME_NONNULL_BEGIN
+
+@interface HomeViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END

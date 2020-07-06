@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,11 +57,53 @@
                     <connections>
                         <outlet property="passwordField" destination="N6e-S0-tro" id="v7U-5B-juZ"/>
                         <outlet property="usernameField" destination="NYQ-Vt-pDL" id="hyy-V7-Xxd"/>
+                        <segue destination="gSH-hT-kcF" kind="presentation" identifier="loginSegue" id="GJQ-yt-bPJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="wyM-ad-CZE">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="Hgi-la-6kj" customClass="HomeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OaL-e4-gQB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="YRe-Ih-wjO"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AgU-xw-eXL">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="fvw-cT-p8V">
+                            <connections>
+                                <action selector="didTapLogOut:" destination="Hgi-la-6kj" id="jx9-wx-hN8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wHS-PV-ha3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1928" y="138"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ITc-pk-GlB">
+            <objects>
+                <navigationController storyboardIdentifier="AuthenticatedViewController" automaticallyAdjustsScrollViewInsets="NO" id="gSH-hT-kcF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="PvZ-N9-yvf"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Um-NW-Tld">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Hgi-la-6kj" kind="relationship" relationship="rootViewController" id="LrE-L5-VMI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zya-Q5-Wbh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1071" y="138"/>
         </scene>
     </scenes>
 </document>

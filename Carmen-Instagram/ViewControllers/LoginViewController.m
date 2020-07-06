@@ -36,6 +36,7 @@
                                                      }];
     // add the OK action to the alert controller
     [alert addAction:okAction];
+    
     if ([username isEqualToString:@""] || [password isEqualToString:@""]) {
         [self presentViewController:alert animated:YES completion:^{
             // optional code for what happens after the alert controller has finished presenting
