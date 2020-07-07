@@ -11,9 +11,14 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "ComposeViewController.h"
+#import "PostCell.h"
+#import "Post.h"
+#import <PFImageView.h>
+
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, ComposeViewControllerDelegate>
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *postArray;
 @end
 
 @implementation HomeViewController
@@ -21,6 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self getTimeline];
 }
 - (IBAction)didTapLogOut:(id)sender {
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -32,8 +40,26 @@
         // PFUser.current() will now be nil
     }];
     NSLog(@"User logged out successfully!");
+    [self dismissViewControllerAnimated:true completion:nil];
 }
+- (void)getTimeline{
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 20;
 
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            // do something with the array of object returned by the call
+            self.postArray = (NSMutableArray *)posts;
+            NSLog(@"😎😎😎 Successfully loaded home timeline");
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"Error getting home timeline: %@", error.localizedDescription);
+        }
+    }];
+}
 
 #pragma mark - Navigation
 
@@ -47,11 +73,15 @@
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    <#code#>
+    PostCell *cell = [tableView dequeueReusableCellWithIdentifier: @"PostCell"];
+    Post *post = self.postArray[indexPath.row];
+    cell.captionLabel.text = post.caption;
+    [cell setPost:post];
+    return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.postArray.count;
 }
 
 
