@@ -29,6 +29,10 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self getTimeline];
+    //refresh control init
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
 }
 - (IBAction)didTapLogOut:(id)sender {
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -41,6 +45,12 @@
     }];
     NSLog(@"User logged out successfully!");
     [self dismissViewControllerAnimated:true completion:nil];
+}
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    [self getTimeline];
+    [self.tableView reloadData];
+    // Tell the refreshControl to stop spinning
+    [refreshControl endRefreshing];
 }
 - (void)getTimeline{
     // construct query
