@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) Post *post;
 @property (weak, nonatomic) IBOutlet PFImageView *postView;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 - (void)setPost:(Post *)post;
 @end
 

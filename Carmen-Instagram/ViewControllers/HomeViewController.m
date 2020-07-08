@@ -14,6 +14,7 @@
 #import "PostCell.h"
 #import "Post.h"
 #import <PFImageView.h>
+#import "DetailsViewController.h"
 
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, ComposeViewControllerDelegate>
@@ -56,6 +57,8 @@
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
+    [query includeKey:@"author"];
+    [query includeKey:@"createdAt"];
     query.limit = 20;
 
     // fetch data asynchronously
@@ -77,15 +80,23 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    UINavigationController *navigationController = [segue destinationViewController];
-    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-    composeController.delegate = self;
+    if ([segue.identifier isEqualToString:@"toPostDetails"]){
+        PostCell *tappedCell =sender;
+        Post *post = tappedCell.post;
+        DetailsViewController *detailsViewController =  [segue destinationViewController];
+        detailsViewController.post = post;
+    } else {
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+        composeController.delegate = self;
+    }
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier: @"PostCell"];
     Post *post = self.postArray[indexPath.row];
     cell.captionLabel.text = post.caption;
+    cell.userNameLabel.text = post.author.username;
     [cell setPost:post];
     return cell;
 }
