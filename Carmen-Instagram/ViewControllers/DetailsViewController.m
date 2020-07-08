@@ -10,11 +10,13 @@
 #import <Parse/Parse.h>
 #import "Post.h"
 #import <PFImageView.h>
+#import "DateTools.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet PFImageView *postImageView;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *createdDateLabel;
 
 @end
 
@@ -26,6 +28,9 @@
     self.postImageView.file = self.post.image;
     self.captionLabel.text = self.post.caption;
     self.userNameLabel.text = self.post.author.username;
+    NSDate *date = self.post.createdAt;
+    self.createdDateLabel.text = date.shortTimeAgoSinceNow;
+    
 }
 
 /*
