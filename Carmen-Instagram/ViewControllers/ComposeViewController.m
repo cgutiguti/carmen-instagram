@@ -53,7 +53,8 @@
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
 
     // Do something with the images (based on your use case)
-    [self resizeImage:originalImage withSize:CGSizeMake(originalImage.size.width/2, originalImage.size.height/2)];
+    CGSize size = CGSizeMake(originalImage.size.width/3, originalImage.size.height/3);
+    [self resizeImage:originalImage withSize:size];
     self.imageView.image = originalImage;
     
     
@@ -87,8 +88,6 @@
     } else {
         NSLog(@"You must choose an image to post. ");
     }
-    
-    
 }
 /*
 #pragma mark - Navigation

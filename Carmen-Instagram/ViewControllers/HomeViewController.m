@@ -16,6 +16,7 @@
 #import <PFImageView.h>
 #import "DetailsViewController.h"
 #import "SceneDelegate.h"
+#import "DateTools.h"
 
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, ComposeViewControllerDelegate>
@@ -98,7 +99,8 @@
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier: @"PostCell"];
     Post *post = self.postArray[indexPath.row];
     cell.captionLabel.text = post.caption;
-    cell.userNameLabel.text = post.author.username;
+    cell.userNameLabel.text = [NSString stringWithFormat:@"posted by %@", post.author.username];
+    cell.createdAtLabel.text = post.createdAt.shortTimeAgoSinceNow;
     [cell setPost:post];
     return cell;
 }

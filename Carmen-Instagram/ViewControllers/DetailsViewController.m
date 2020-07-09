@@ -27,7 +27,7 @@
     // Do any additional setup after loading the view.
     self.postImageView.file = self.post.image;
     self.captionLabel.text = self.post.caption;
-    self.userNameLabel.text = self.post.author.username;
+    self.userNameLabel.text = [NSString stringWithFormat:@"posted by %@", self.post.author.username];
     NSDate *date = self.post.createdAt;
     self.createdDateLabel.text = date.shortTimeAgoSinceNow;
     
