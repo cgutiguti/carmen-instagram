@@ -45,13 +45,13 @@
         return nil;
     }
     
-    NSData *imageData = UIImagePNGRepresentation(image);
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.6);
     // get image data and check if that is not nil
     if (!imageData) {
         return nil;
     }
     
-    return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
+    return [PFFileObject fileObjectWithName:@"image.jpeg" data:imageData];
 }
 
 
